@@ -1,7 +1,14 @@
+let money, time;
 
+function start(argument) {
+	money = +prompt('Ваш бюджет на месяц?');
+	time = prompt('Введите дату в формате YYYY-MM-DD');
 
-let money = +prompt('Ваш бюджет на месяц?'),
-	time = prompt('Введите дату в формате YYYY-MM-DD')
+	while(isNaN(money) || money == '' || money == null) {
+		money = +prompt('Ваш бюджет на месяц?', '');
+	}
+}
+start();
 
 let appData = {
 	money,
@@ -9,18 +16,11 @@ let appData = {
 	expenses: {},
 	optionalExpenses: {},
 	incom: [],
-	sacing: false
+	saving: true
 };
 
-// let answer1 = prompt('Введите обязательную статью расходов в этом месяце', ''),
-// 	answer2 = prompt('Во сколько обойдется?', '');
-// 	answer3 = prompt('Введите обязательную статью расходов в этом месяце', ''),
-// 	answer4 = prompt('Во сколько обойдется?', '');
-
-// appData.expenses.answer1 = answer2;
-// appData.expenses.answer3 = answer4;
-
-for (let i = 0; i < 2; i++) {
+function shooseExpenses(){
+	for (let i = 0; i < 2; i++) {
 	let a = prompt('Введите обязательную статью расходов в этом месяце', ''),
 	 	b = prompt('Во сколько обойдется?', '');
 	if (typeof(a) === 'string' && typeof(a) != null && typeof(b) === 'string' && typeof(b) != null
@@ -31,16 +31,51 @@ for (let i = 0; i < 2; i++) {
 		console.log('bed result');
 		i--;
 		}
+	}
 }
 
-appData.moneyForDay = appData.money/30;
+shooseExpenses();
 
-if (appData.moneyForDay < 100) {
-	console.log('min');
-} else if (appData.moneyForDay > 100 && appData.moneyForDay < 200) {
-	console.log('mid');
-} else if (appData.moneyForDay > 200) {
-	console.log('max');
-} else {
-	console.log('arror');
+//Дневной бюджет
+function detectDayBudget(){
+	appData.moneyForDay = +(appData.money/30).toFixed();
+	alert(appData.moneyForDay);
 }
+detectDayBudget();
+
+// уровень достатка
+function detectLevel() {
+	if (appData.moneyForDay < 100) {
+		console.log('min');
+	} else if (appData.moneyForDay > 100 && appData.moneyForDay < 200) {
+		console.log('mid');
+	} else if (appData.moneyForDay > 200) {
+		console.log('max');
+	} else {
+		console.log('arror');
+	}
+}
+
+detectLevel();
+
+//сбережения и %
+function scheckSav() {
+	if (appData.saving == true) {
+		let save = prompt('how', '');
+			procent = prompt('%', '');
+
+		appData.monthIn = save/100/12*procent;
+		alert('доход ' + appData.monthIn);
+	}
+}
+
+scheckSav();
+
+
+//определения необязательных расходов
+function chooseOptExpenses() {
+	for (let i = 1; i < 4; i++ ) {
+		let a = prompt('Статья необязательных расходов?', '');
+		appData.optionalExpenses[i] = a;
+	}
+};
