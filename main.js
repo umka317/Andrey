@@ -4,6 +4,7 @@ function start(argument) {
 	money = +prompt('Ваш бюджет на месяц?');
 	time = prompt('Введите дату в формате YYYY-MM-DD');
 
+//проверка на пустую строку, не число, отмену
 	while(isNaN(money) || money == '' || money == null) {
 		money = +prompt('Ваш бюджет на месяц?', '');
 	}
@@ -68,7 +69,7 @@ let appData = {
 	//дополнительные доходы
 	chooseInCome: function() {
 		let items = prompt('что принесет доп доход (введите через запятую)', '');
-
+//(!!items && items.match(/[0-9]/)) || !items - Ромына проверка
 		while (!isNaN(items) || items == '' || items == null) {
 			items = prompt('что принесет доп доход (введите через запятую)', '');
 		}
