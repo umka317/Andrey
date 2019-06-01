@@ -1,22 +1,30 @@
-let start = document.getElementById('start'),
-	budget = document.getElementsByClass('budget-value'),
-	daybudget = document.getElementsByClass('daybudget-value'),
-	level = document.getElementsByClass('level-value'),
-	expenses = document.getElementsByClass('expenses-value'),
-	optionalexpenses = document.getElementsByClass('optionalexpenses-value'),
-	income = document.getElementsByClass('income-value'),
-	monthsavings = document.getElementsByClass('monthsavings-value'),
-	yearsavings = document.getElementsByClass('yearsavings-value'),
-	inp = document.getElementsByClass('expenses-item'),
-	buttonOne = document.getElementByTagName('button'),
-	buttonTwo = document.getElementByTagName('button'),
-	optionalexpensesItem = document.querySelectorAll('.data .optionalexpenses-item'),
-	chooseIncome = document.querySelector('.choose-income'),
-	percent = document.querySelector('.choose-percent'),
-	year = document.querySelector('.year-value'),
-	month = document.querySelector('.month-value'),
-	day = document.querySelector('.day-value'),
-	sum = document.querySelector('.choose-sum'),
-	savings = document.querySelector('.savings')
+//события и их обработки
 
-console.log(start);
+let btn = document.querySelectorAll('button'),
+	wrap = document.querySelector('.wrapper'),
+	link = document.querySelector('a');
+
+
+// btn[1].onclick = function() {
+// 	alert('gg');
+// }
+
+btn[1].addEventListener('click', function(event) {
+	let one = event.target;
+	one.style.color = 'red';
+})
+
+// wrap.addEventListener('click', function(event) {
+// 	console.log('it was: ' + event.type + ' on ' + event.target);
+// })
+
+link.addEventListener('click', function(event) {
+	event.preventDefault();
+	console.log('it was: ' + event.type + ' on ' + event.target);
+});
+
+// btn.forEach(function(item) {
+// 	item.addEventListener('mouseleave', function() {
+// 		console.log('gg');
+// 	})
+// })
