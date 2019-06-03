@@ -1,30 +1,51 @@
-//события и их обработки
+// let timerId = setTimeout(seyHello, 3000);
+// 	clearTimeout(timerId);
 
-let btn = document.querySelectorAll('button'),
-	wrap = document.querySelector('.wrapper'),
-	link = document.querySelector('a');
+// let timerId = setInterval(seyHello, 3000);
+// 	clearTimeout(timerId);
 
-
-// btn[1].onclick = function() {
-// 	alert('gg');
+// function seyHello () {
+// 	console.log( 'Hello' );
 // }
 
-btn[1].addEventListener('click', function(event) {
-	let one = event.target;
-	one.style.color = 'red';
+// let timerId = setTimeout(function log() {
+// 	console.log('Hello');
+// 	setTimeout(log, 2000);
+// });
+
+// let btn = document.getElementsByTagName('button')[0];
+// 	elem = document.querySelector('.inBox');
+
+// 	console.log(elem);
+
+// function myAnimation() {
+// 	let  pos = 0;
+
+// 	let id = setInterval(frame, 10);
+// 	function frame() {
+// 		if (pos == 300) {
+// 			clearInterval(id);
+// 		} else {
+// 			pos++;
+// 			elem.style.top = pos + 'px';
+// 			elem.style.left = pos + 'px';
+// 		}
+// 	}
+// };
+
+// btn.addEventListener('click', myAnimation);
+
+let btnBlock = document.querySelector('.grey'),
+	btns = document.querySelector('.yellow');
+
+// btnBlock.addEventListener('click', function(e) {
+// 	if (e.target && e.target.classList.contains('first')) {
+// 		console.log('hello');
+// 	}
+// })
+
+btnBlock.addEventListener('click', function(e) {
+	if (e.target && e.target.matches('button.first')) {
+		console.log('hello');
+	}
 })
-
-// wrap.addEventListener('click', function(event) {
-// 	console.log('it was: ' + event.type + ' on ' + event.target);
-// })
-
-link.addEventListener('click', function(event) {
-	event.preventDefault();
-	console.log('it was: ' + event.type + ' on ' + event.target);
-});
-
-// btn.forEach(function(item) {
-// 	item.addEventListener('mouseleave', function() {
-// 		console.log('gg');
-// 	})
-// })
