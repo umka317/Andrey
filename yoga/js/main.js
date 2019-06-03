@@ -1,9 +1,9 @@
 window.addEventListener('DOMContentLoaded', function() {
 	'use strict';
 
-	let tab = document.querySelectorAll('.info-header-tab'),
-		info = document.querySelector('.info-header'),
-		tabContent = document.querySelectorAll('.info-tabcontent');
+	let tab = document.querySelectorAll('.info-header-tab'),			//класс с табами
+		info = document.querySelector('.info-header'),				//весь блок табов
+		tabContent = document.querySelectorAll('.info-tabcontent');		//контент табов
 
 	function hideTabContent(a) {								//скрываем все статьи кроме 1й
 		for (let i = a; i < tabContent.length; i++) {			
