@@ -40,7 +40,7 @@ window.addEventListener('DOMContentLoaded', function() {
 	
 let deadline = 'june, 08 2019';
 
-	function getTimeRemaining(endtime) {
+	function getTimeRemaining(endtime) {	//находим разность между сегоднешней датой и задуманной, создаем обьект со значениями
 		let t = Date.parse(endtime) - Date.parse(new Date());		//если отрицательная разность выводим 00:00:00
 		if ( t < 0 ) {
 			return {
@@ -65,12 +65,12 @@ let deadline = 'june, 08 2019';
 		}	
 	}
 
-	function setClock(id, endtime) {
+	function setClock(id, endtime) {		//берем переменные со строницы и приравниваем с обьектом getTimeRemaining()
 		let timer = document.getElementById(id),
 			hours = timer.querySelector('.hours'),
 			minutes = timer.querySelector('.minutes'),
 			seconds = timer.querySelector('.seconds'),
-			timeInterval = setInterval(updateClock, 1000);
+			timeInterval = setInterval(updateClock, 1000); //интервал смены даты, 1сек
 
 			function updateClock () {
 				let t = getTimeRemaining(endtime);
