@@ -7,7 +7,7 @@ window.addEventListener('DOMContentLoaded', function() {
 		tabContent = document.querySelectorAll('.info-tabcontent');		//контент табов
 
 	function hideTabContent(a) {								//скрываем все статьи кроме 1й
-		for (let i = a; i < tabContent.length; i++) {			
+		for (let i = a; i < tabContent.length; i++) {
 			tabContent[i].classList.remove('show');				//удаляем класс элементов show(показать)
 			tabContent[i].classList.add('hide');				//добавляем класс hide(скрыть)
 		}
@@ -24,7 +24,7 @@ window.addEventListener('DOMContentLoaded', function() {
 
 	info.addEventListener('click', function(e) {				//определяем элемент на который кликнули и статью, которую добавить надо
 		let target = e.target;
-		if (target && target.classList.contains('info-header-tab')) { //проверка, если таб на который кликнули имеет класс info-header-tab 
+		if (target && target.classList.contains('info-header-tab')) { //проверка, если таб на который кликнули имеет класс info-header-tab
 			for(let i = 0; i < tab.length; i++) {
 				if (target === tab[i]) {						//если индекс таба, на кот кликнули совпадает с индексом статьи
 					hideTabContent(0);
@@ -37,7 +37,7 @@ window.addEventListener('DOMContentLoaded', function() {
 
 
 //часы
-	
+
 let deadline = 'june, 08 2019';
 
 	function getTimeRemaining(endtime) {
@@ -62,7 +62,7 @@ let deadline = 'june, 08 2019';
 				'minutes': minutes,
 				'seconds': seconds
 			};
-		}	
+		}
 	}
 
 	function setClock(id, endtime) {
@@ -92,9 +92,34 @@ let deadline = 'june, 08 2019';
 				}
 			}
 		}
-		
+
 
 	setClock('timer', deadline);
-	console.log(getTimeRemaining(deadline));
 
+	//modal
+	let more = document.querySelector('.more'),
+			overlay = document.querySelector('.overlay'),
+			close = document.querySelector('.popup-close'),
+	    moreBtn = document.querySelectorAll('.description-btn');
+
+
+	moreBtn.forEach(function (item, i) {
+    moreBtn[i].addEventListener('click', function () {
+      overlay.style.display = 'block';
+      this.classList.add('more-splash');
+      document.body.style.overflow = 'hidden';
+    });
+  });
+
+	more.addEventListener('click', function() {
+      overlay.style.display = 'block';
+      this.classList.add('more-splash');
+      document.body.style.overflow = 'hidden';
+  });
+
+	close.addEventListener('click', function () {
+      overlay.style.display = 'none';
+      more.classList.remove('more-splash');
+      document.body.style.overflow = '';
+  })
 });
