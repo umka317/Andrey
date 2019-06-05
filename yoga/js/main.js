@@ -35,7 +35,6 @@ window.addEventListener('DOMContentLoaded', function() {
 		}
 	})
 
-
 //часы
 
 let deadline = 'june, 08 2019';
@@ -72,7 +71,7 @@ let deadline = 'june, 08 2019';
 			seconds = timer.querySelector('.seconds'),
 			timeInterval = setInterval(updateClock, 1000); //интервал смены даты, 1сек
 
-			function updateClock () {
+			function updateClock () {									//отображаем на странице часы
 				let t = getTimeRemaining(endtime);
 				if ( t.seconds < 10 ) {
 					t.seconds = '0' + t.seconds;
@@ -96,14 +95,15 @@ let deadline = 'june, 08 2019';
 
 	setClock('timer', deadline);
 
-	//modal
-	let more = document.querySelector('.more'),
+	//modal модальное окно
+
+	let more = document.querySelector('.more'),     //получаем с html все необходимые обьекты: модальное окно, кнопку закрыть, 2 кнопки узнать больше
 			overlay = document.querySelector('.overlay'),
 			close = document.querySelector('.popup-close'),
 	    moreBtn = document.querySelectorAll('.description-btn');
 
 
-	moreBtn.forEach(function (item, i) {
+	moreBtn.forEach(function (item, i) {						//для каждой кнопки "узнать больше" в табе вешаем события
     moreBtn[i].addEventListener('click', function () {
       overlay.style.display = 'block';
       this.classList.add('more-splash');
@@ -111,13 +111,13 @@ let deadline = 'june, 08 2019';
     });
   });
 
-	more.addEventListener('click', function() {
+	more.addEventListener('click', function() {				//под часами кнопка
       overlay.style.display = 'block';
       this.classList.add('more-splash');
       document.body.style.overflow = 'hidden';
   });
 
-	close.addEventListener('click', function () {
+	close.addEventListener('click', function () {			//кнопка закрыть
       overlay.style.display = 'none';
       more.classList.remove('more-splash');
       document.body.style.overflow = '';
