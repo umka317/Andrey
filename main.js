@@ -35,8 +35,8 @@
 
 // btn.addEventListener('click', myAnimation);
 
-let btnBlock = document.querySelector('.grey'),
-	btns = document.querySelector('.yellow');
+// let btnBlock = document.querySelector('.grey'),
+// 	btns = document.querySelector('.yellow');
 
 // btnBlock.addEventListener('click', function(e) {
 // 	if (e.target && e.target.classList.contains('first')) {
@@ -44,8 +44,29 @@ let btnBlock = document.querySelector('.grey'),
 // 	}
 // })
 
-btnBlock.addEventListener('click', function(e) {
-	if (e.target && e.target.matches('button.first')) {
-		console.log('hello');
+// btnBlock.addEventListener('click', function(e) {
+// 	if (e.target && e.target.matches('button.first')) {
+// 		console.log('hello');
+// 	}
+// })
+let json = '{"id":2}'
+
+try {
+	let user = JSON.parse(json);
+	console.log(user);
+
+	if (!user.name) {
+		throw new Error("чтоо вы делаете")
 	}
-})
+	// console.log('get start');
+	// console.log(a);
+	// console.log('well dan');
+} catch(error) {
+	console.log(error.name);
+	console.log(error.message);
+	console.log(error.stack);
+
+	console.log(`мы получили ошибку: ${error.name}`);
+} finally {
+	console.log('gg');
+}
